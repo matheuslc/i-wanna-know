@@ -1,0 +1,173 @@
+
+ /*
+  * Name: I Wanna Know
+  * Author: Matheus Lucca do Carmo
+  * Github: /matheuslc
+  * License: MIT
+ */
+
+html {
+  height: 100%;
+  font-size: 62.5%;
+}
+
+body {
+	background-color: #000;
+  height: 100%;
+  color: #fff;
+  overflow-x: hidden;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.title {
+  text-align: center;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 6rem;
+  margin: 10px 0 0 0;
+}
+
+.subtitle {
+  text-align: center;
+  font-weight: 600;
+  text-align: center;
+  font-size: 3rem;
+  margin: 0;
+}
+
+.music-select {
+  width: 260px;
+  border-radius: 4px;
+  color: #000;
+  border-bottom: 7px solid #7f8c8d;
+  background-color: #fff;
+  margin: 50px auto;
+  padding: 40px 5px;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  -webkit-transition: .5s all ease-in-out;
+  -o-transition: .5s all ease-in-out;
+  transition: .5s all ease-in-out;
+}
+
+.music-select:active {
+  position: relative;
+  top: 6px;
+  border-bottom: 1px solid #7f8c8d;
+}
+
+.music-text {
+  display: block;
+  font-weight: 800;
+  font-size: 2rem;
+}
+
+.music-note {
+  display: block;
+}
+
+#file {
+  position: absolute;
+  top: 0;
+  height: 108px;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 2rem;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.hidden-select {
+  left: -100%;
+}
+
+.spinner-hide {
+  display: none;
+}
+
+.footer {
+  width: 100%;
+  padding: 20px;
+  position: fixed;
+  bottom: 0;
+  clear: both;
+}
+
+.fa {
+  color: #fff;
+  font-size: 2.4rem;
+  margin: 0 15px;
+  cursor: pointer;
+}
+
+.controls {
+  width: 500px;
+  margin: 0 auto;
+}
+
+.author {
+  color: #fff;
+  float: left;
+  font-size: 1.6rem;
+  text-decoration: none;
+}
+
+.spinner-active {
+  display: block;
+}
+
+.spinner {
+  margin: 100px auto;
+  width: 50px;
+  height: 30px;
+  text-align: center;
+  font-size: 10px;
+}
+
+.spinner > div {
+  background-color: #fff;
+  height: 100%;
+  width: 6px;
+  display: inline-block;
+  
+  -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
+  animation: stretchdelay 1.2s infinite ease-in-out;
+}
+
+.spinner .rect2 {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s;
+}
+
+.spinner .rect3 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+.spinner .rect4 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+
+.spinner .rect5 {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+}
+
+@-webkit-keyframes stretchdelay {
+  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }  
+  20% { -webkit-transform: scaleY(1.0) }
+}
+
+@keyframes stretchdelay {
+  0%, 40%, 100% { 
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+  } 20% {
+    transform: scaleY(1.0);
+    -webkit-transform: scaleY(1.0);
+  }
+}
