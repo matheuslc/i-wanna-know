@@ -315,9 +315,9 @@ function getAM(leftChannel, rightChannel) {
   * Generate random HEX color
   * http://css-tricks.com/examples/RandomHexColor/
   */
-  function randomColor() {
-    return "#" + Math.floor(Math.random()*16777215).toString(16);
-  }
+  // function randomColor() {
+  //   return "#" + Math.floor(Math.random()*16777215).toString(16);
+  // }
 
 
 
