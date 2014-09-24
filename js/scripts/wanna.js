@@ -1,15 +1,13 @@
 /*
  * I wanna know.
- * Version: 0.1
+ * Version: 0.0.2
  * matheuslc.github.io/i-wanna-know
  * Released under the MIT license.
  * Date: 10-07-2014.
  */
 
-
-
-;(function(window, undefined) {
-
+;(function(window, undefined, document) {
+  'use strict';
   /**
   * Variables used in entire project.
   */
@@ -23,8 +21,8 @@
       splitter,
       fftSize = 256,
       smooth = 0.5,
-      wavesNumber = 14,
-      browser = navigator.userAgent.toLowerCase();
+      wavesNumber = 14;
+      //browser = navigator.userAgent.toLowerCase();
 
 /**
  * Audio Context support.
@@ -39,7 +37,7 @@ function audioCtx() {
   if(window.AudioContext) {
     return new window.AudioContext();
   } else {
-    alert("Sorry bro. Your browser doesn't provide Audio API support.");
+    alert('Sorry bro. Your browser does not provide Audio API support.');
   }
 
 }
@@ -51,31 +49,31 @@ function audioCtx() {
  */
 function rqstAnimationFrame() {
 
-  window.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame ||
+  window.requestAnimationFrame = window.requestAnimationFrame ||
+                                 window.webkitRequestAnimationFrame ||
                                  window.mozRequestAnimationFrame;
-  
+
   if(window.requestAnimationFrame) {
     return window.requestAnimationFrame;
   } else {
-    alert("Seriously bro. Take a modern web broswer, thank you.");
+    alert('Seriously bro. Take a modern web broswer, thank you.');
   }
 
 }
 
 /**
  * AJAX Request for load the sound.
- *
  * @param {blob} url Contains the sound path.
  */
 function loadSound() {
 
   var request = new XMLHttpRequest();
-      request.open("GET", url, true);
-      request.responseType = "arraybuffer";
+      request.open('GET', url, true);
+      request.responseType = 'arraybuffer';
 
       request.onload = function() {
         spinner('.spinner');
-      },
+      };
 
       request.onreadystatechange = function() {
 
@@ -85,15 +83,13 @@ function loadSound() {
             getAudioData(data);
           }, onError);
         }
-      },
+      };
 
       request.send();
-
 }
 
 /**
 * Log the error.
-*
 * @param {string} e error return from callback.
 */
 function onError(e) {
@@ -148,7 +144,7 @@ function makeNodes() {
 
   // Final node connect to destination.
   gain.connect(context.destination);
-  
+
   // Start the sound.
   source.start(0);
 
@@ -185,11 +181,11 @@ function makeNodes() {
 */
 function getAverage(array, frequenciesDivisor) {
 
-  var result = new Array(frequenciesDivisor),
-      i      = 0,
-      j      = 0,
+  var result       = new Array(frequenciesDivisor),
+      i            = 0,
+      j            = 0,
       fragmentSize = 0,
-      size   = Math.floor(array.length / frequenciesDivisor);
+      size         = Math.floor(array.length / frequenciesDivisor);
 
   for(j = 0; j < frequenciesDivisor; j++) {
     result[j] = 1;
@@ -220,7 +216,6 @@ function getAverage(array, frequenciesDivisor) {
 
 /**
 * Make the canvas waves with frequencies
-*
 * @param {array} leftChannel Array with left audio channel
 * average.
 * @param {array} rightChannel Array with right audio channel
@@ -229,21 +224,21 @@ function getAverage(array, frequenciesDivisor) {
 */
 function getAM(leftChannel, rightChannel) {
 
-  var canvas   = document.getElementById("beat"),
+  var canvas   = document.getElementById('beat'),
       i        = 0,
       j        = leftChannel.length - 1,
       initP    = 21.25,
       nextP    = 28.75,
       back     = false,
-      ctx      = canvas.getContext("2d");
+      ctx      = canvas.getContext('2d');
 
 
   canvas.width     = window.innerWidth;
   canvas.height    = 300;
-  ctx.strokeStyle  = "#fff";
-  ctx.lineCap      = "round";
+  ctx.strokeStyle  = '#fff';
+  ctx.lineCap      = 'round';
   ctx.lineWidth    = 4;
-  ctx.lineJoin     = "miter";
+  ctx.lineJoin     = 'miter';
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.beginPath();
@@ -251,7 +246,7 @@ function getAM(leftChannel, rightChannel) {
   ctx.lineTo(12, canvas.height / 2);
 
   for (i = 0; i < Math.round(canvas.width / 26); i++) {
-   
+
    if(j === 0) {
     back = true;
    } else if ( j === leftChannel.length - 1) {
@@ -262,7 +257,7 @@ function getAM(leftChannel, rightChannel) {
     j--;
    } else {
     j++;
-   } 
+   }
 
     ctx.quadraticCurveTo(initP, 150  + (rightChannel[j] * -1), nextP, canvas.height / 2 );
     initP += 12.5;
@@ -287,7 +282,7 @@ function getAM(leftChannel, rightChannel) {
   var el = document.querySelector(klass);
 
       // If support Audio API, supports classList \o
-      el.classList.toggle("spinner-hide");
+      el.classList.toggle('spinner-hide');
  }
 
  /**
@@ -307,7 +302,7 @@ function getAM(leftChannel, rightChannel) {
 
     // Check if is MP3
 
-    if(file.type === "audio/mpeg" || file.type === "audio/mp3") {
+    if(file.type === 'audio/mpeg' || file.type === 'audio/mp3') {
 
       url = window.URL.createObjectURL(file);
       return url;
@@ -322,32 +317,31 @@ function getAM(leftChannel, rightChannel) {
 /**
  * Make the magic
  */
-  var file         = document.getElementById("file"),
-      sound        = document.getElementById("volume-control"),
-      wavesControl = document.getElementById("waves-control"),
+  var file         = document.getElementById('file'),
+      sound        = document.getElementById('volume-control'),
+      wavesControl = document.getElementById('waves-control'),
       url;
 
-  file.addEventListener("change", function(e) {
+  file.addEventListener('change', function(e) {
     e.preventDefault();
-    url = getFile("file");
+    url = getFile('file');
     if(url !== false) {
       makeNodes();
       loadSound(url);
     } else {
-      alert("Only mp3 bro. Select another file");
+      alert('Only mp3 bro. Select another file');
     }
 
   });
 
-  sound.addEventListener("change", function(e) {
+  sound.addEventListener('change', function(e) {
     e.preventDefault();
     volume(sound.value);
   }, false);
 
-  wavesControl.addEventListener("change", function(e) {
+  wavesControl.addEventListener('change', function(e) {
     e.preventDefault();
     wavesNumber = this.value;
   });
 
-
-})(window);
+})(window,document);

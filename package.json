@@ -1,10 +1,10 @@
 {
-  "name": "i-wanna-know",
-  "version": "0.0.1",
-  "description": "Generate waves with sound frequencie",
-  "main": "Gruntfile.js",
+  "name": "I-wanna-know",
+  "version": "0.0.2",
+  "description": "I wanna know the beat of this song.",
+  "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "gulp ci"
   },
   "repository": {
     "type": "git",
@@ -14,16 +14,25 @@
     "html5",
     "audio",
     "api",
-    "javascript"
+    "data",
+    "analizer"
   ],
   "author": "Matheus Lucca do Carmo",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/matheuslc/i-wanna-know/issues"
   },
-  "homepage": "https://github.com/matheuslc/i-wanna-know",
+  "homepage": "http://matheuslc.com/i-wanna-know/",
   "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-contrib-connect": "^0.8.0"
+    "gulp": "^3.8.8",
+    "gulp-autoprefixer": "^1.0.1",
+    "gulp-concat": "^2.4.1",
+    "gulp-connect": "^2.0.6",
+    "gulp-imagemin": "^1.0.1",
+    "gulp-jshint": "^1.8.4",
+    "gulp-minify-css": "^0.3.10",
+    "gulp-rename": "^1.2.0",
+    "gulp-sass": "^0.7.3",
+    "gulp-uglify": "^1.0.1"
   }
 }

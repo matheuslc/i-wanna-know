@@ -1,17 +1,15 @@
 # I Wanna Know
 
-
-Generate waves with sound frequencies.
-
-Inspiration: https://www.youtube.com/watch?v=bpOSxM0rNPM
-
 * A HTML5 Audio API Experiment
 * Canvas
 
-See
+## Demo
 
 [Site](http://matheuslc.com/i-wanna-know)
+
+## Youtube video
 [Youtube Video](https://www.youtube.com/watch?v=4oBJYr9ZXV8])
+
 
 ## How to use
 
@@ -24,11 +22,11 @@ npm install
 
 ```
 
-3. Run grunt
+3. Run gulp
 
 ```
-grunt server
+gulp
 
 ```
 
-
+[Inspiration](https://www.youtube.com/watch?v=bpOSxM0rNPM)

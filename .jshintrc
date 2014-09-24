@@ -1,0 +1,10 @@
+{
+  "boss":      true,
+  "strict":    true,
+  "maxlen":    100,
+  "newcap":    false,
+  "unused":    true,
+  "onecase":   true,
+  "lastsemic": true,
+  "indent":    2
+}

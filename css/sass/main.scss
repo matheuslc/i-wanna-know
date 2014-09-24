@@ -1,4 +1,3 @@
-
  /*
   * Name: I Wanna Know
   * Author: Matheus Lucca do Carmo
@@ -6,13 +5,15 @@
   * License: MIT
  */
 
+@import '_normalize';
+
 html {
   height: 100%;
   font-size: 62.5%;
 }
 
 body {
-	background-color: #000;
+  background-color: #000;
   height: 100%;
   color: #fff;
   overflow-x: hidden;
