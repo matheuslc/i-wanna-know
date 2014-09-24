@@ -1,4 +1,6 @@
 # I Wanna Know
+[![Build Status](https://travis-ci.org/matheuslc/i-wanna-know.svg?branch=master)](https://travis-ci.org/matheuslc/i-wanna-know)
+
 
 * A HTML5 Audio API Experiment
 * Canvas

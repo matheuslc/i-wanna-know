@@ -6,7 +6,7 @@
  * Date: 10-07-2014.
  */
 
-;(function(window, undefined, document) {
+;(function(window, undefined) {
   'use strict';
   /**
   * Variables used in entire project.
@@ -236,7 +236,6 @@ function getAM(leftChannel, rightChannel) {
   canvas.width     = window.innerWidth;
   canvas.height    = 300;
   ctx.strokeStyle  = '#fff';
-  ctx.lineCap      = 'round';
   ctx.lineWidth    = 4;
   ctx.lineJoin     = 'miter';
 
@@ -312,6 +311,14 @@ function getAM(leftChannel, rightChannel) {
 
   }
 
+ /**
+  * Generate random HEX color
+  * http://css-tricks.com/examples/RandomHexColor/
+  */
+  function randomColor() {
+    return "#" + Math.floor(Math.random()*16777215).toString(16);
+  }
+
 
 
 /**
@@ -344,4 +351,4 @@ function getAM(leftChannel, rightChannel) {
     wavesNumber = this.value;
   });
 
-})(window,document);
+})(window);
